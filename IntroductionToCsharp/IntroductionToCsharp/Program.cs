@@ -4,13 +4,26 @@
     {
         static void Main()
         {
-            Console.Write("Enter your name : ");
-            string? Name = Console.ReadLine();
+            // Charcter literals
+            Console.WriteLine('P');
+            // string literals
+            Console.WriteLine("Pahkhs");
 
-            Console.WriteLine("Your name is "+ Name);
-            Console.WriteLine($"Your name is {Name}");
-            Console.WriteLine("Your name is {0}", Name);
+            // Integer literals
+            Console.WriteLine(21345);
 
+            // Floating point literals
+            /*
+                1. Float = F
+                2. Double 
+                3. Decimal = m
+            */
+            Console.WriteLine(0.23F);
+
+            // Boolean literal
+            // true or false
+            Console.WriteLine(true);
+            Console.WriteLine(false);
         }
     }
 }
