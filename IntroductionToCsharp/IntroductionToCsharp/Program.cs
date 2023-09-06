@@ -2,21 +2,15 @@
 {
     internal class Program
     {
-        static void Main1()
-        {
-            //Console.Write("Hello, Csharp!"); single line comment
-
-            /*
-            multi line comment
-            Console.WriteLine("Hello, World!");
-            */
-
-            Console.WriteLine("Hello, Main1");
-        }
         static void Main()
         {
-            Console.WriteLine("Hello, Main");
-            Main1();
+            Console.Write("Enter your name : ");
+            string? Name = Console.ReadLine();
+
+            Console.WriteLine("Your name is "+ Name);
+            Console.WriteLine($"Your name is {Name}");
+            Console.WriteLine("Your name is {0}", Name);
+
         }
     }
 }
