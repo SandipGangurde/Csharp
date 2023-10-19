@@ -1,29 +1,30 @@
-﻿namespace IntroductionToCsharp
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace IntroductionToCsharp
 {
     internal class Program
     {
         static void Main()
         {
-            // Charcter literals
-            Console.WriteLine('P');
-            // string literals
-            Console.WriteLine("Pahkhs");
+            // Syntax declar variable
+            // DataType VariableName = DefaultValue;
 
-            // Integer literals
-            Console.WriteLine(21345);
+            string FirstName;
 
-            // Floating point literals
             /*
-                1. Float = F
-                2. Double 
-                3. Decimal = m
+                Variable name rules:
+                1. _ Names can contain letter, digit, underscore(_).
+                2. Names must begin with letter or underscore.
+                3. Names are case sensitive(firstName and FirstName are different variable).
+                4. Reserved Word (keywords not allowed to the variable name) connot used.
             */
-            Console.WriteLine(0.23F);
-
-            // Boolean literal
-            // true or false
-            Console.WriteLine(true);
-            Console.WriteLine(false);
+            
+            // Example
+            char UserOption;
+            int Age = 22;
+            decimal ParticlesPerMillion;
+            bool ProcessedCustomer;
+            Console.WriteLine(Age);
         }
     }
 }
