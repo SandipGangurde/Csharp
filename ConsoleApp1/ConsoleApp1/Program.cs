@@ -13,7 +13,9 @@
                 Console.WriteLine("1. ArrayList Operations");
                 Console.WriteLine("2. SortedList Operations");
                 Console.WriteLine("3. Dictionary Operations");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("4. Queue");
+                Console.WriteLine("5. Tuple");
+                Console.WriteLine("6. Exit");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -29,6 +31,12 @@
                         PerformDictionaryOperations();
                         break;
                     case 4:
+                        PerformQueueOperations();
+                        break;
+                    case 5:
+                        PerformTupleOperations();
+                        break;
+                    case 6:
                         Environment.Exit(0);
                         break;
                     default:
@@ -107,6 +115,95 @@
             dictionaryProgram.ReadDictionary();
             dictionaryProgram.DeleteFromDictionary(2);
             dictionaryProgram.ReadDictionary();
+        }
+
+        static void PerformQueueOperations() {
+            QueueExample queueExample = new QueueExample();
+            while (true)
+            {
+                Console.WriteLine("Queue CRUD Operations:");
+                Console.WriteLine("1. Add an item to the queue");
+                Console.WriteLine("2. View the queue");
+                Console.WriteLine("3. Update an item in the queue");
+                Console.WriteLine("4. Remove an item from the queue");
+                Console.WriteLine("5. Exit");
+                Console.Write("Select an option: ");
+
+                int choice;
+                if (int.TryParse(Console.ReadLine(), out choice))
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.Write("Enter an item to add to the queue: ");
+                            string item = Console.ReadLine();
+                            queueExample.AddToQueue(item);
+                            break;
+                        case 2:
+                            queueExample.ViewQueue();
+                            break;
+                        case 3:                
+                            queueExample.UpdateQueueItem();
+                            break;
+                        case 4:
+                            queueExample.RemoveFromQueue();
+                            break;
+                        case 5:
+                            Environment.Exit(0);
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                }
+            }
+        }
+
+        static void PerformTupleOperations() {
+            TupleProgram tupleProgram = new TupleProgram();
+            while (true)
+            {
+                Console.WriteLine("Tuple CRUD Operations Menu:");
+                Console.WriteLine("1. Create a new person");
+                Console.WriteLine("2. Read person details");
+                Console.WriteLine("3. Update person details");
+                Console.WriteLine("4. Delete a field");
+                Console.WriteLine("5. Exit");
+                Console.Write("Select an option (1-5): ");
+
+                if (int.TryParse(Console.ReadLine(), out int choice))
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            tupleProgram.CreatePerson();
+                            break;
+                        case 2:
+                            tupleProgram.ReadPerson();
+                            break;
+                        case 3:
+                            tupleProgram.UpdatePerson();
+                            break;
+                        case 4:
+                            tupleProgram.DeleteField();
+                            break;
+                        case 5:
+                            Environment.Exit(0);
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                }
+            }
         }
     }
 }
