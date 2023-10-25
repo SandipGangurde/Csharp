@@ -15,7 +15,8 @@
                 Console.WriteLine("3. Dictionary Operations");
                 Console.WriteLine("4. Queue");
                 Console.WriteLine("5. Tuple");
-                Console.WriteLine("6. Exit");
+                Console.WriteLine("6. Delegate");
+                Console.WriteLine("7. Exit");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -37,6 +38,9 @@
                         PerformTupleOperations();
                         break;
                     case 6:
+                        PerformDelegateMathOperation();
+                        break;
+                    case 7:
                         Environment.Exit(0);
                         break;
                     default:
@@ -173,7 +177,8 @@
                 Console.WriteLine("3. Update person details");
                 Console.WriteLine("4. Delete a field");
                 Console.WriteLine("5. Exit");
-                Console.Write("Select an option (1-5): ");
+                Console.WriteLine("6. Go To Main Menu");
+                Console.Write("Select an option (1-6): ");
 
                 if (int.TryParse(Console.ReadLine(), out int choice))
                 {
@@ -193,6 +198,60 @@
                             break;
                         case 5:
                             Environment.Exit(0);
+                            break;
+                        case 6:
+                            MainMenu();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                }
+            }
+        }
+
+        delegate int MathOperation(int a, int b);
+
+        static void PerformDelegateMathOperation()
+        {
+            MathDelegateProgram program = new MathDelegateProgram();
+
+            while (true)
+            {
+                Console.WriteLine("Math Operations Menu:");
+                Console.WriteLine("1. Addition");
+                Console.WriteLine("2. Subtraction");
+                Console.WriteLine("3. Multiplication");
+                Console.WriteLine("4. Division");
+                Console.WriteLine("5. Exit");
+                Console.WriteLine("6. Go To Main Menu");
+                Console.Write("Select an option (1-6): ");
+
+                if (int.TryParse(Console.ReadLine(), out int choice))
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            program.PerformMathOperation("Addition", program.Add);
+                            break;
+                        case 2:
+                            program.PerformMathOperation("Subtraction", program.Subtract);
+                            break;
+                        case 3:
+                            program.PerformMathOperation("Multiplication", program.Multiply);
+                            break;
+                        case 4:
+                            program.PerformMathOperation("Division", program.Divide);
+                            break;
+                        case 5:
+                            Environment.Exit(0);
+                            break;
+                        case 6:
+                            MainMenu();
                             break;
                         default:
                             Console.WriteLine("Invalid option. Please try again.");
