@@ -16,7 +16,8 @@
                 Console.WriteLine("4. Queue");
                 Console.WriteLine("5. Tuple");
                 Console.WriteLine("6. Delegate");
-                Console.WriteLine("7. Exit");
+                Console.WriteLine("7. File Stream Operations");
+                Console.WriteLine("8. Exit");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -41,8 +42,12 @@
                         PerformDelegateMathOperation();
                         break;
                     case 7:
+                        PerformFileOperations();
+                        break;
+                    case 8:
                         Environment.Exit(0);
                         break;
+
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");
                         break;
@@ -264,5 +269,59 @@
                 }
             }
         }
+
+        static void PerformFileOperations()
+        {
+            FileReaderWriter fileOperations = new FileReaderWriter();
+
+            while (true)
+            {
+                Console.WriteLine("File Operations Menu:");
+                Console.WriteLine("1. Read File");
+                Console.WriteLine("2. Append Text to File");
+                Console.WriteLine("3. Delete File");
+                Console.WriteLine("4. Exit");
+                Console.WriteLine("5. Go To Main Menu");
+                Console.Write("Select an option (1-5): ");
+
+                if (int.TryParse(Console.ReadLine(), out int choice))
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.Write("Enter the file path to read: ");
+                            string filePath = Console.ReadLine();
+                            fileOperations.ReadFile(filePath);
+                            break;
+                        case 2:
+                            Console.Write("Enter the file path to append text: ");
+                            string filePathToAppend = Console.ReadLine();
+                            Console.Write("Enter text to append: ");
+                            string textToAppend = Console.ReadLine();
+                            fileOperations.AppendTextToFile(filePathToAppend, textToAppend);
+                            break;
+                        case 3:
+                            Console.Write("Enter the file path to delete: ");
+                            string filePathToDelete = Console.ReadLine();
+                            fileOperations.DeleteFile(filePathToDelete);
+                            break;
+                        case 4:
+                            Environment.Exit(0);
+                            break;
+                        case 5:
+                            MainMenu();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                }
+            }
+        }
+
     }
 }
